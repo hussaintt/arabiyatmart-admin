@@ -1,0 +1,18 @@
+# Render Blueprint — YallaMotors Admin Control Center
+# Deploy this from the YallaMotorsAdmin repository. The Fastify API, worker,
+# Postgres, and Key Value services are declared in YallaMotorsBackend/render.yaml.
+
+services:
+  - type: web
+    name: yallamotors-admin
+    runtime: node
+    region: frankfurt
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_BASE_URL
+        value: https://api.arabiyatmart.com

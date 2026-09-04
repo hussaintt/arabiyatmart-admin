@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // One-off local scaffold helper; it is not application/runtime code.
+    "setup_files.js",
   ]),
 ]);
 
